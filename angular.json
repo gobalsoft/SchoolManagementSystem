@@ -24,6 +24,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/bootstrap/dist/css/bootstrap.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -119,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "SchoolManagementSystem"
+    }
+  },
+  "defaultProject": "SchoolManagementSystem",
+  "cli": {
+    "analytics": "d40b485e-3160-461a-a7e2-248094e4d920"
+  }
 }
