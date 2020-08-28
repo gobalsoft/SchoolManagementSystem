@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import{Student} from './student';
+import { of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,12 +11,17 @@ export class SchoolService {
 
   constructor() {
 this.student=[
-{AcademicStartDate:new Date("2019-01-16"),
-AcademicEndDate:new Date("2019-01-16"),
-IsCurrentAcademic:true},
+  { AcademicID:1,
+    AcademicStartDate:new Date("2019-01-16"),
+   AcademicEndDate:new Date("2019-01-16"),
+IsCurrentAcademic:false},
 
 
 ];
-
    }
+   get(){
+    console.log("get"+this.student);
+    return of(this.student);
+
+  }
 }
