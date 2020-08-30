@@ -14,7 +14,8 @@ this.student=[
   { AcademicID:1,
     AcademicStartDate:new Date("2019-01-16"),
    AcademicEndDate:new Date("2019-01-16"),
-IsCurrentAcademic:false},
+IsCurrentAcademic:false,
+SchoolID:1},
 
 
 ];
