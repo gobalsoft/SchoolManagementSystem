@@ -12,7 +12,7 @@ const routes: Routes = [
 
   children:[
     {
-      path: 'second-component', 
+      path: 'second-component/:id', 
       component: EditSchoolAcademicYearComponent, 
     },
   ],

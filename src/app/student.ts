@@ -1,4 +1,4 @@
-export interface Student {
+export interface SchoolAcademic {
 
     AcademicID: number;
     AcademicStartDate:Date;
@@ -6,3 +6,4 @@ export interface Student {
     IsCurrentAcademic:Boolean;
     SchoolID:number;
 }
+

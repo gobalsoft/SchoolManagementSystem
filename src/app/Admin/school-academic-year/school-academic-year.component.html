@@ -9,15 +9,17 @@
         <div class="col-sm-3">Current Academic </div>
         <div class="col-sm-3">Edit</div>
     </div>
-    <div class="row" *ngFor="let list of Academic">
-        <div class="col-sm-3">{{list.AcademicStartDate | date: 'dd/MM/yyyy'}}</div>
+    <div class="row" *ngFor="let list of academic">
+         <div class="col-sm-3">{{list.AcademicStartDate | date: 'dd/MM/yyyy'}}</div>
         <div class="col-sm-3">{{list.AcademicEndDate | date: 'dd/MM/yyyy' }}</div>
         <div class="col-sm-3">
             <div *ngIf="list.IsCurrentAcademic==true else elseBlock">yes
          </div>
          <ng-template #elseBlock>No</ng-template>  
         </div>
-        <div class="col-sm-3"><a routerLink="./second-component" routerLinkActive="active" data-toggle="modal" data-target="#myModal">Edit</a></div>
+        <div class="col-sm-3"><a [routerLink]="['./second-component',list.AcademicID]" routerLinkActive="active" data-toggle="modal" data-target="#myModal">Edit</a>
+            
+        </div>
     </div>
 
 </div>

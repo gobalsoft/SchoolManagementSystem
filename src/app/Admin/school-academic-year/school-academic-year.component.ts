@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {SchoolService} from 'src/app/school.service';
+import {Router} from "@angular/router";
   import { from } from 'rxjs';
-import { Student } from 'src/app/student';
+import { SchoolAcademic } from 'src/app/student';
 
 @Component({
   selector: 'app-school-academic-year',
@@ -9,14 +10,18 @@ import { Student } from 'src/app/student';
   styleUrls: ['./school-academic-year.component.css']
 })
 export class SchoolAcademicYearComponent implements OnInit {
-Academic:Array<Student>;
-  constructor(private schoolService:SchoolService) { }
+academic:SchoolAcademic[]=[];
+
+  constructor(private router: Router,private schoolService:SchoolService) { }
 
   ngOnInit() {
-    this.schoolService.get().subscribe(res=>{
-      this.Academic=res;
-      console.log(this.Academic);
+ 
+
+    this.schoolService.get().subscribe((data: SchoolAcademic[])=>{
+      console.log(data);
+      this.academic = data;
     });
+ 
   }
 
   

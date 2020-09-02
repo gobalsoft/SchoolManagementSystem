@@ -11,24 +11,28 @@
   
         </div>
         <div class="modal-body">
+          <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
           <div class="form-group">
             <div class="row mt-1">
              <div class="col-sm-3"> <label>Academic Start Date</label></div> 
-             <div  class="col-sm-3"><input type="text" class="" /></div> 
+             <div  class="col-sm-3"><input type="date" class="" formControlName="AcademicStartDate" /></div> 
             </div>
             <div class="row mt-1">
               <div class="col-sm-3"> <label>Academic End Date</label></div> 
-              <div  class="col-sm-3"><input type="text" class="" /></div> 
+              <div  class="col-sm-3"><input type="date" class="" formControlName="AcademicEndDate"  /></div> 
              </div>
-            <div class="row mt-2">
-              <div class="col-sm-3"> <label>Yes</label></div> 
-             <div class="col-sm-3"><input class="form-check-input" type="radio" name="mode" /></div> 
-            </div>
-            <div class="row mt-2">
-              <div class="col-sm-3"> <label>No</label></div> 
-             <div class="col-sm-3"><input class="form-check-input" type="radio" name="mode" /></div> 
-            </div>
+             <div class="row mt-1">
+              <div  class="col-sm-3"><label>  Current Academic</label></div>
+              <div class="col-sm-1"> <label>Yes</label></div> 
+             <div class="col-sm-1"><input class="form-check-input" type="radio" name="mode" formControlName="IsCurrentAcademic"  /></div> 
+             <div class="col-sm-1"> <label>No</label></div> 
+             <div class="col-sm-2"><input class="form-check-input" type="radio" name="mode" formControlName="IsCurrentAcademic"  /></div> 
+             </div>
+            
+            
           </div>
+          <button class="btn btn-success">Update</button>
+        </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
