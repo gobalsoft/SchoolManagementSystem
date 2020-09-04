@@ -12,6 +12,13 @@ export class SchoolService {
   student:Array<SchoolAcademic>=[];
  constructor(private httpClient: HttpClient) {
    }
+   httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
+  }
+
+
    get(): Observable<SchoolAcademic[]>{
     console.log("get"+this.student);
     //return of(this.student);
@@ -33,7 +40,25 @@ export class SchoolService {
            
     }
 
+    saveAcademic(datas:any):Observable<SchoolAcademic[]>{
+
+      
+      const body=JSON.stringify(datas);
+
+      return this.httpClient.post<SchoolAcademic[]>("https://localhost:5000/SchoolMS/api/Academic"
+             ,body,this.httpOptions)
+             .pipe(
+              catchError(this.errorHandler)
+            )
+            
+        
+   
+    }
+     
+    
+
   errorHandler(error) {
+    debugger;
     let errorMessage = '';
     if(error.error instanceof ErrorEvent) {
       // Get client-side error

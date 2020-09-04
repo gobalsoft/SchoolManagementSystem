@@ -1,6 +1,15 @@
 <div class=" col-sm-12 border border-primary h-100">
 <div class=" card-header">
-    School Acadamic Year
+    <div class="row">
+        <div   class=" col-sm-10" >  School Acadamic Year</div>
+    <div  class=" col-sm-2 ">  <button class="btn btn-success" >
+        <a routerLink="./addschoolacademicyear"  style="text-decoration: none;color: white; " data-toggle="modal" data-target="#myModal">ADD</a>
+    </button>
+        
+    </div>
+    </div>
+    
+  
 </div>
 <div  class="container-fluid">
     <div class="row border">
@@ -10,14 +19,14 @@
         <div class="col-sm-3">Edit</div>
     </div>
     <div class="row" *ngFor="let list of academic">
-         <div class="col-sm-3">{{list.AcademicStartDate | date: 'dd/MM/yyyy'}}</div>
-        <div class="col-sm-3">{{list.AcademicEndDate | date: 'dd/MM/yyyy' }}</div>
+         <div class="col-sm-3">{{list.AcademicStartDate | date: 'MM/dd/yyyy'}}</div>
+        <div class="col-sm-3">{{list.AcademicEndDate | date: 'MM/dd/yyyy' }}</div>
         <div class="col-sm-3">
             <div *ngIf="list.IsCurrentAcademic==true else elseBlock">yes
          </div>
          <ng-template #elseBlock>No</ng-template>  
         </div>
-        <div class="col-sm-3"><a [routerLink]="['./second-component',list.AcademicID]" routerLinkActive="active" data-toggle="modal" data-target="#myModal">Edit</a>
+        <div class="col-sm-3"><a [routerLink]="['./editschoolacademicyear',list.AcademicID]" routerLinkActive="active" data-toggle="modal" data-target="#myModal">Edit</a>
             
         </div>
     </div>
