@@ -18,8 +18,14 @@ academic:SchoolAcademic[]=[];
  
 
     this.schoolService.get().subscribe((data: SchoolAcademic[])=>{
+      debugger;
       console.log(data);
       this.academic = data;
+      
+      for(let  i=0;this.academic.length>i;i++){
+        console.log("for"+this.academic[i].academicStartDate);
+      }
+      console.log(this.academic);
     });
  
   }

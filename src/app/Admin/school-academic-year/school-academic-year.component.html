@@ -19,8 +19,9 @@
         <div class="col-sm-3">Edit</div>
     </div>
     <div class="row" *ngFor="let list of academic">
-         <div class="col-sm-3">{{list.AcademicStartDate | date: 'MM/dd/yyyy'}}</div>
-        <div class="col-sm-3">{{list.AcademicEndDate | date: 'MM/dd/yyyy' }}</div>
+ 
+         <div class="col-sm-3">{{list.academicStartDate}}</div>
+        <div class="col-sm-3">{{list.AcademicEndDate}}</div>
         <div class="col-sm-3">
             <div *ngIf="list.IsCurrentAcademic==true else elseBlock">yes
          </div>

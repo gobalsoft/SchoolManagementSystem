@@ -1,7 +1,7 @@
 export interface SchoolAcademic {
 
     AcademicID: number;
-    AcademicStartDate:Date;
+    academicStartDate:Date;
     AcademicEndDate:Date;
     IsCurrentAcademic:Boolean;
     SchoolID:number;
