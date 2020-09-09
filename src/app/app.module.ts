@@ -9,6 +9,9 @@ import { AppComponent } from './app.component';
 import { SchoolAcademicYearComponent } from './Admin/school-academic-year/school-academic-year.component';
 import { EditSchoolAcademicYearComponent } from './Admin/edit-school-academic-year/edit-school-academic-year.component';
 import { AddSchoolAcademicYearComponent } from './Admin/add-school-academic-year/add-school-academic-year.component';
+import { SchoolClassesComponent } from './Admin/school-classes/school-classes.component';
+import { SchoolSubjectsComponent } from './Admin/school-subjects/school-subjects.component';
+import { ClassSubjectsComponent } from './Admin/class-subjects/class-subjects.component';
 
 
 
@@ -18,6 +21,9 @@ import { AddSchoolAcademicYearComponent } from './Admin/add-school-academic-year
     SchoolAcademicYearComponent,
     EditSchoolAcademicYearComponent,
     AddSchoolAcademicYearComponent,
+    SchoolClassesComponent,
+    SchoolSubjectsComponent,
+    ClassSubjectsComponent,
 
   ],
   imports: [

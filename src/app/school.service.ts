@@ -23,7 +23,7 @@ export class SchoolService {
     console.log("get"+this.student);
     //return of(this.student);
 
-    return this.httpClient.get <SchoolAcademic[]>("https://localhost:5000/SchoolMS/api/SchoolAcademic/1")
+    return this.httpClient.get <SchoolAcademic[]>("https://localhost:5000/SchoolMS/api/SchoolAcademic/1",this.httpOptions)
     .pipe(
       catchError(this.errorHandler)
     )
