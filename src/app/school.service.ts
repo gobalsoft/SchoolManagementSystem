@@ -3,13 +3,14 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from "@angular/common/http
 
 import {  throwError, Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import{SchoolAcademic} from './student'
+import{SchoolAcademic, SchoolClass} from './student'
 @Injectable({
   providedIn: 'root'
 })
 export class SchoolService {
     uri:string="https://localhost:5000/SchoolMS/";
   student:Array<SchoolAcademic>=[];
+  SchoolClaees:Array<SchoolClass>=[];
  constructor(private httpClient: HttpClient) {
    }
    httpOptions = {
@@ -54,8 +55,16 @@ export class SchoolService {
         
    
     }
-     
     
+     
+    Getschoolcls():Observable<SchoolClass[]>{
+      debugger;
+      console.log("get"+this.SchoolClaees);
+      return this.httpClient.get<SchoolClass[]>("https://localhost:5000/SchoolMS/api/GetAllClass/1",this.httpOptions)
+      .pipe(
+        catchError(this.errorHandler)
+      )
+    }
 
   errorHandler(error) {
     debugger;

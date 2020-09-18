@@ -6,4 +6,10 @@ export interface SchoolAcademic {
     IsCurrentAcademic:Boolean;
     SchoolID:number;
 }
+export interface SchoolClass{
+   // S.No:number;    
+SchoolClassName:string;
+DisplayOrder:number;
+}
+
 

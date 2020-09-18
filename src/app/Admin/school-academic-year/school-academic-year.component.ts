@@ -15,7 +15,7 @@ academic:SchoolAcademic[]=[];
   constructor(private router: Router,private schoolService:SchoolService) { }
 
   ngOnInit() {
- 
+ debugger;
 
     this.schoolService.get().subscribe((data: SchoolAcademic[])=>{
       console.log(data);

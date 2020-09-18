@@ -29,10 +29,11 @@
     
         
     </div>
-    <div class="row ">
+    <div class="row " *ngFor="let listcls of Schoolcls">
+       
         <div class="col-sm-4">S.No</div>
-    <div class="col-sm-4">School Class Name</div>
-    <div class="col-sm-4">Display Order</div>
+    <div class="col-sm-4">{{listcls.Schoolclassname}}</div>
+    <div class="col-sm-4">{{listcls.Displayorder}}</div>
 </div>
 
 
