@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { from } from 'rxjs';
 import {SchoolService} from 'src/app/school.service';
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
- 
 import {SchoolClass } from 'src/app/student';
 
 @Component({
@@ -11,12 +11,17 @@ import {SchoolClass } from 'src/app/student';
   styleUrls: ['./school-classes.component.css']
 })
 export class SchoolClassesComponent implements OnInit {
-  
+
+  SchoolClsForm: FormGroup;
   Schoolcls:SchoolClass[]=[];
-  constructor(private router: Router,private schoolService:SchoolService) { }
+  submitted = false;
+  constructor(private formBuilder: FormBuilder,private router: Router,private schoolService:SchoolService) { }
 
   ngOnInit() {
-    debugger;
+
+
+   
+    
 console.log(this.Schoolcls);
     this.schoolService.Getschoolcls().subscribe((data:SchoolClass[])=>{
 
@@ -25,6 +30,36 @@ console.log(this.Schoolcls);
       console.log();
 
     });
+
+
+    this.SchoolClsForm = this.formBuilder.group({
+
+      Schoolclassname: ['', Validators.required],
+      Displayorder: ['', Validators.required],
+     
+      SchoolID:['1'],
+  
+      
+    });
+     
   }
+  get fval() {
+    console.log(this.SchoolClsForm.controls);
+    return this.SchoolClsForm.controls;
+    }
+ 
+  onSubmit(){
+
+ debugger;
+      this.submitted = true;
+      if (this.SchoolClsForm.invalid) {
+      return;
+    
+   console.log(this.SchoolClsForm.value);
+    
+  }
+ 
+    }
+  
 
 }

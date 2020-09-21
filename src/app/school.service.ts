@@ -66,6 +66,10 @@ export class SchoolService {
       )
     }
 
+    SaveSchoolClass(){
+      
+    }
+
   errorHandler(error) {
     debugger;
     let errorMessage = '';

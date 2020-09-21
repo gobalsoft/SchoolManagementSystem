@@ -2,22 +2,39 @@
     <div></div>
     <div class="card-header border-primary">School Class</div>
 <div class="border">
+    <div>
+        <form [formGroup]="SchoolClsForm"  (ngSubmit)="onSubmit()">
     <div class="row mt-2">
         
-        <div  class="col-sm-4">
+        <div  class="col-sm-4 form-group">
             <label>School Class Name</label>
-            <input type="text">
+            <input type="text" formControlName="Schoolclassname"  [ngClass]="{ 'is-invalid': submitted && fval.Schoolclassname.errors}"/>
+
+            <div *ngIf="submitted && fval.Schoolclassname.errors" class="invalid-feedback">
+                <div *ngIf="fval.Schoolclassname.errors.required">
+                    School Class Name Required
+                </div>
+                 
+                </div>
         </div>
-        <div  class="col-sm-4">
+        
+                    <div  class="col-sm-4">
             <label>Dispaly Order    </label>
-            <input type="text">
+            <input type="text" formControlName="Displayorder"  [ngClass]="{ 'is-invalid': submitted && fval.Displayorder.errors}">
+            <div *ngIf="submitted && fval.Displayorder.errors" class="invalid-feedback">
+                <div *ngIf="fval.Displayorder.errors.required">
+                    Display Order Required
+                </div>
+                 
+                </div>
         </div>
         <div class="col-sm-2">
-   <input type="submit">
+   <input type="submit" value="ADD" class="btn btn-success"/>
         </div>
         
     </div>
-  
+</form>
+</div>
 </div>
 
     <div class="card-header">
