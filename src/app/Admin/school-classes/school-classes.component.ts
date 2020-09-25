@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { from } from 'rxjs';
 import {SchoolService} from 'src/app/school.service';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {FormBuilder, FormGroup, Validators,MaxLengthValidator,MinLengthValidator} from "@angular/forms";
 import {Router} from "@angular/router";
 import {SchoolClass } from 'src/app/student';
 
@@ -34,7 +34,7 @@ console.log(this.Schoolcls);
 
     this.SchoolClsForm = this.formBuilder.group({
 
-      Schoolclassname: ['', Validators.required],
+      Schoolclassname: ['', Validators.compose([ Validators.required, Validators.minLength(2), Validators.maxLength(5)])],
       Displayorder: ['', Validators.required],
      
       SchoolID:['1'],

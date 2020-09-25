@@ -11,5 +11,9 @@ export interface SchoolClass{
 SchoolClassName:string;
 DisplayOrder:number;
 }
-
+export interface SchoolSubject{
+    SubjectCode:string;
+    SubjectNmae:string;
+    Category:string;
+}
 

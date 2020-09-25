@@ -46,9 +46,9 @@
     
         
     </div>
-    <div class="row " *ngFor="let listcls of Schoolcls">
+    <div class="row " *ngFor="let listcls of Schoolcls ;let i = index">
        
-        <div class="col-sm-4">S.No</div>
+        <div class="col-sm-4">{{i + 1}}</div>
     <div class="col-sm-4">{{listcls.Schoolclassname}}</div>
     <div class="col-sm-4">{{listcls.Displayorder}}</div>
 </div>
