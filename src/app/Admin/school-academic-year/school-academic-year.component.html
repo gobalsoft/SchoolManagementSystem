@@ -12,13 +12,13 @@
   
 </div>
 <div  class="container-fluid">
-    <div class="row border">
+    <div class="row  card-header">
         <div class="col-sm-3">Academic Start Date</div>
         <div class="col-sm-3">Academic End Date</div>
         <div class="col-sm-3">Current Academic </div>
         <div class="col-sm-3">Edit</div>
     </div>
-    <div class="row" *ngFor="let list of academic">
+    <div class="row border-bottom" *ngFor="let list of academic">
          <div class="col-sm-3">{{list.AcademicStartDate | date: 'MM/dd/yyyy'}}</div>
         <div class="col-sm-3">{{list.AcademicEndDate | date: 'MM/dd/yyyy' }}</div>
         <div class="col-sm-3">

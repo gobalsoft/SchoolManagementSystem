@@ -3,14 +3,31 @@
     <div class="card-header border-primary">School Subject</div>
 
 <div class="border  container ">
+
+    <form [formGroup]="SchoolSubForm"  (ngSubmit)="onSubmit()">
+
 <div class=" mt-2 mb-2 form-inline">
     <div class="col-sm-4 form-group">
         <label>Subject Code:</label>
-        <input type="text" class="form-control">
+        <input type="text" class="form-control" formControlName="SubjectCode"  [ngClass]="{ 'is-invalid': submitted && Subval.SubjectCode.errors}" />
+
+        <div *ngIf="submitted && Subval.SubjectCode.errors" class="invalid-feedback">
+            <div *ngIf="Subval.SubjectCode.errors.required">
+                Subject Code Required
+            </div>
+             
+            </div>
     </div>
     <div class="col-sm-4 form-group">
         <label>Subject Name:</label>
-        <input type="text" class="form-control">
+        <input type="text" class="form-control" formControlName="SubjectName"  [ngClass]="{ 'is-invalid': submitted && Subval.SubjectName.errors}" >
+
+        <div *ngIf="submitted && Subval.SubjectName.errors" class="invalid-feedback">
+            <div *ngIf="Subval.SubjectName.errors.required">
+                Subject Name Required
+            </div>
+             
+            </div>
     </div>
     <div class="col-sm-3 form-group" >
         <label>Category:</label>
@@ -21,6 +38,8 @@
     </div>
     <div><input type="submit" value="ADD" class="btn btn-success" ></div>
 </div>
+
+</form>
 </div>
 
 
