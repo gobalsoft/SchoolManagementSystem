@@ -32,9 +32,10 @@
     <div class="col-sm-3 form-group" >
         <label>Category:</label>
         <select class="">
-            <option>one</option>
-            <option>oneONEONEONEPONE</option>
-        \</select>
+            <option  *ngFor="let category of SchoolSubCategory"  [value]="category.Category_id">{{category.CategoryName}} </option>
+          
+        </select>
+      
     </div>
     <div><input type="submit" value="ADD" class="btn btn-success" ></div>
 </div>
@@ -52,10 +53,10 @@
     
         
     </div>
-    <div class="row ">
-        <div class="col-sm-4">S.No</div>
-    <div class="col-sm-4">School Class Name</div>
-    <div class="col-sm-4">Display Order</div>
+    <div class="row "  *ngFor="let ListSub of SchoolSub">
+        <div class="col-sm-4">{{ListSub.Subjectcode}}</div>
+    <div class="col-sm-4">{{ListSub.Subjectname}}</div>
+    <div class="col-sm-4">{{ListSub.Category_id}}</div>
 </div>
 
 

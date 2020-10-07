@@ -14,12 +14,25 @@ export class SchoolSubjectsComponent implements OnInit {
 
   SchoolSubForm: FormGroup;
   SchoolSub:SchoolSubject[]=[];
+  SchoolSubCategory:SchoolSubject[]=[];
   submitted = false;
 
   constructor(private formBuilder: FormBuilder,private router: Router,private schoolService:SchoolService) { }
 
-  ngOnInit(): void {
+  ngOnInit():void {
+debugger;
 
+this.schoolService.GetSchoolSub().subscribe((data:SchoolSubject[])=>{
+  this.SchoolSub=data;
+  console.log(this.SchoolSub);
+
+});
+
+this.schoolService.GetSubCategory().subscribe((data:SchoolSubject[])=>{
+  this.SchoolSubCategory=data;
+  console.log(this.SchoolSubCategory);
+
+});
     this.SchoolSubForm = this.formBuilder.group({
 
       SubjectCode: ['', Validators.compose([ Validators.required, Validators.minLength(2), Validators.maxLength(5)])],
@@ -30,9 +43,7 @@ export class SchoolSubjectsComponent implements OnInit {
       
     });
      
-  
-
-
+   
   }
   get Subval() {
     console.log(this.SchoolSubForm.controls);
@@ -45,9 +56,11 @@ export class SchoolSubjectsComponent implements OnInit {
            this.submitted = true;
            if (this.SchoolSubForm.invalid) {
            return;
+           
                         
        }
       
-         }
+        
+      }
 
-}
+    }

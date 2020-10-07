@@ -19,17 +19,11 @@ export class SchoolClassesComponent implements OnInit {
 
   ngOnInit() {
 
-
+    this.callgetmethod();
    
     
 console.log(this.Schoolcls);
-    this.schoolService.Getschoolcls().subscribe((data:SchoolClass[])=>{
-
-    console.log(data);
-      this.Schoolcls=data;
-      console.log();
-
-    });
+   
 
 
     this.SchoolClsForm = this.formBuilder.group({
@@ -43,6 +37,17 @@ console.log(this.Schoolcls);
     });
      
   }
+  callgetmethod(){
+
+    this.schoolService.Getschoolcls().subscribe((data:SchoolClass[])=>{
+
+      console.log(data);
+        this.Schoolcls=data;
+  
+  
+      });
+
+  }
   get fval() {
     console.log(this.SchoolClsForm.controls);
     return this.SchoolClsForm.controls;
@@ -51,11 +56,20 @@ console.log(this.Schoolcls);
   onSubmit(){
 
  debugger;
+console.log(this.fval.value);
+ 
       this.submitted = true;
-      if (this.SchoolClsForm.invalid) {
-      return;
+      if (!this.SchoolClsForm.invalid) {
+
+        this.schoolService.SaveSchoolClass(this.SchoolClsForm.value).subscribe((data:SchoolClass[])=>{
+          console.log("cls"+data);
+          this.callgetmethod();
+        });
+       
+      
+      
     
-   console.log(this.SchoolClsForm.value);
+  
     
   }
  

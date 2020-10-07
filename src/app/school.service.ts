@@ -3,7 +3,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from "@angular/common/http
 
 import {  throwError, Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import{SchoolAcademic, SchoolClass} from './student'
+import{SchoolAcademic, SchoolClass, SchoolSubject} from './student'
 @Injectable({
   providedIn: 'root'
 })
@@ -66,8 +66,36 @@ export class SchoolService {
       )
     }
 
-    SaveSchoolClass(){
+    SaveSchoolClass(datacls:any):Observable<SchoolClass[]>{
       
+
+      
+      const body=JSON.stringify(datacls);
+
+      return this.httpClient.post<SchoolClass[]>("https://localhost:5000/SchoolMS/api/SaveSchoolClass"
+             ,body,this.httpOptions)
+             .pipe(
+              catchError(this.errorHandler)
+            )
+            
+    }
+
+    GetSchoolSub():Observable<SchoolSubject[]>{
+      debugger;
+      console.log("get"+this.SchoolClaees);
+      return this.httpClient.get<SchoolSubject[]>("https://localhost:5000/SchoolMS/api/GetAllSubject/1",this.httpOptions)
+      .pipe(
+        catchError(this.errorHandler)
+      )
+    }
+
+    GetSubCategory():Observable<SchoolSubject[]>{
+      debugger;
+      
+      return this.httpClient.get<SchoolSubject[]>("https://localhost:5000/SchoolMS/api/GetSubjectCategory/1",this.httpOptions)
+      .pipe(
+        catchError(this.errorHandler)
+      )
     }
 
   errorHandler(error) {
