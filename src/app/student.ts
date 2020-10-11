@@ -8,12 +8,12 @@ export interface SchoolAcademic {
 }
 export interface SchoolClass{
    // S.No:number;    
-SchoolClassName:string;
+ClassName:string;
 DisplayOrder:number;
 }
 export interface SchoolSubject{
     SubjectCode:string;
-    SubjectNmae:string;
-    Category:string;
+    SubjectNamee:string;
+    Category_id:string;
 }
 

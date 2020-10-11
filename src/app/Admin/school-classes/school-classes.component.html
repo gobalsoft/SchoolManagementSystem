@@ -7,10 +7,10 @@
     <div class="row mt-2">
         
         <div  class="col-sm-4 form-group">
-            <label>School Class Name</label>
-            <input type="text" formControlName="Schoolclassname"  [ngClass]="{ 'is-invalid': submitted && fval.Schoolclassname.errors}"/>
+            <label>Class Name</label>
+            <input type="text" formControlName="classname"  [ngClass]="{ 'is-invalid': submitted && fval.classname.errors}"/>
 
-            <div *ngIf="submitted && fval.Schoolclassname.errors" class="invalid-feedback">
+            <div *ngIf="submitted && fval.classname.errors" class="invalid-feedback">
                 <div *ngIf="fval.Schoolclassname.errors.required">
                     School Class Name Required
                 </div>
@@ -49,7 +49,7 @@
     <div class="row border-bottom " *ngFor="let listcls of Schoolcls ;let i = index">
        
         <div class="col-sm-4">{{i + 1}}</div>
-    <div class="col-sm-4">{{listcls.Schoolclassname}}</div>
+    <div class="col-sm-4">{{listcls.ClassName}}</div>
     <div class="col-sm-4">{{listcls.Displayorder}}</div>
 </div>
 

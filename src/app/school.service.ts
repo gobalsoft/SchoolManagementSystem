@@ -11,6 +11,7 @@ export class SchoolService {
     uri:string="https://localhost:5000/SchoolMS/";
   student:Array<SchoolAcademic>=[];
   SchoolClaees:Array<SchoolClass>=[];
+  schoolId=1;
  constructor(private httpClient: HttpClient) {
    }
    httpOptions = {
@@ -80,6 +81,16 @@ export class SchoolService {
             
     }
 
+    SaveSchoolSubject(DataSub:any):Observable<SchoolSubject[]>{
+
+      const body=JSON.stringify(DataSub);
+      return this.httpClient.post<SchoolSubject[]>("https://localhost:5000/SchoolMS/api/SaveSchoolSubject",body,this.httpOptions)
+      .pipe(
+        catchError(this.errorHandler)
+      )
+    }
+     
+
     GetSchoolSub():Observable<SchoolSubject[]>{
       debugger;
       console.log("get"+this.SchoolClaees);
@@ -93,6 +104,13 @@ export class SchoolService {
       debugger;
       
       return this.httpClient.get<SchoolSubject[]>("https://localhost:5000/SchoolMS/api/GetSubjectCategory/1",this.httpOptions)
+      .pipe(
+        catchError(this.errorHandler)
+      )
+    }
+    GetClassSubject(classId):Observable<SchoolClass[]>{
+
+      return this.httpClient.get<SchoolClass[]>("https://localhost:5000/SchoolMS/api/GetClassSubject/"+this.schoolId+"/"+classId+"",this.httpOptions)
       .pipe(
         catchError(this.errorHandler)
       )

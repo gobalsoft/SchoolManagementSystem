@@ -31,7 +31,7 @@
     </div>
     <div class="col-sm-3 form-group" >
         <label>Category:</label>
-        <select class="">
+        <select formControlName="Category_id" >
             <option  *ngFor="let category of SchoolSubCategory"  [value]="category.Category_id">{{category.CategoryName}} </option>
           
         </select>
@@ -56,7 +56,7 @@
     <div class="row "  *ngFor="let ListSub of SchoolSub">
         <div class="col-sm-4">{{ListSub.Subjectcode}}</div>
     <div class="col-sm-4">{{ListSub.Subjectname}}</div>
-    <div class="col-sm-4">{{ListSub.Category_id}}</div>
+    <div class="col-sm-4">{{ListSub.CategoryName}}</div>
 </div>
 
 

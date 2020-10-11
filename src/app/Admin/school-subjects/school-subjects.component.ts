@@ -37,7 +37,7 @@ this.schoolService.GetSubCategory().subscribe((data:SchoolSubject[])=>{
 
       SubjectCode: ['', Validators.compose([ Validators.required, Validators.minLength(2), Validators.maxLength(5)])],
       SubjectName: ['', Validators.required],
-      Category: ['',Validators.required],
+      Category_id: ['',Validators.required],
       SchoolID:['1'],
   
       
@@ -54,9 +54,14 @@ this.schoolService.GetSubCategory().subscribe((data:SchoolSubject[])=>{
 
       debugger;
            this.submitted = true;
-           if (this.SchoolSubForm.invalid) {
-           return;
-           
+           if (!this.SchoolSubForm.invalid) {
+     
+
+
+            this.schoolService.SaveSchoolSubject(this.SchoolSubForm.value).subscribe((data:SchoolSubject[])=>{
+              console.log("Sub"+data);
+             
+            });
                         
        }
       
