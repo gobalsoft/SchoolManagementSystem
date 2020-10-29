@@ -12,16 +12,17 @@ import { SchoolClass } from 'src/app/student';
 })
 export class ClassSubjectsComponent implements OnInit {
   ClassSubject:SchoolClass[]=[];
+  ClassSubjects:SchoolClass[]=[];
   ClsSubForm: FormGroup;
   constructor( private formBuilder: FormBuilder,private router: Router,private schoolService:SchoolService ) {}
 
   ngOnInit(): void {
     
 this.schoolService.Getschoolcls().subscribe((data:SchoolClass[])=>{
-  this.ClassSubject=data;
+  this.ClassSubjects=data;
   console.log(this.ClassSubject);
+ });
 
-});
   }
   GetClassSubject(e){
     debugger;
@@ -34,5 +35,5 @@ this.schoolService.Getschoolcls().subscribe((data:SchoolClass[])=>{
      console.log(this.ClassSubject);
     });
   }
-
+  
 }

@@ -10,7 +10,7 @@
           <label for="cars">Class:</label>
 
           <select name="" id="" (change)="GetClassSubject($event)">
-            <option  *ngFor="let listclssub of ClassSubject"  [value]="listclssub.ClassID">{{listclssub.ClassName}}{{listclssub.ClassID}}</option>
+            <option  *ngFor="let listclssubs of ClassSubjects"  [value]="listclssubs.ClassID">{{listclssubs.ClassName}}{{listclssubs.ClassID}}</option>
            
           </select>
         </div>
@@ -27,18 +27,30 @@
             <div class="col-sm-4">Subject Name</div>
             <div class="col-sm-2">Category</div>
           </div>
-          <div class="col-sm-12 border-bottom "  *ngFor="let ListclsSub of ClassSubject">
-            <div class="row ">
-            <div class="col-sm-1 ">
-              <input type="checkbox">
-            </div>
-            <div class="col-sm-4">{{ListclsSub.SubjectName}}</div>
-            <div class="col-sm-2">{{ListclsSub.CategoryName}}</div>
-          </div>
 
+         <div  class="col-sm-12  "  *ngFor="let ListclsSub of ClassSubject"> 
+         <div class="row">
+           <div class="col-sm-1">
+             <div *ngIf="ListclsSub.IsSelected==1; else unchecked">
+               <div>
+                <input type="checkbox"  value="option" checked/> 
+              </div>
+            
+          
+             </div>
+             <div>
+              <ng-template #unchecked>
+                <input type="checkbox"  value="option" /> 
+              </ng-template>
+            </div>
+           </div>
+           <div class="col-sm-4">{{ListclsSub.SubjectName}}</div>
+           <div class="col-sm-2">{{ListclsSub.CategoryName}}</div>
+         </div>
+         </div>
+             
           </div>
-          </div>
-                          
+                      
          
             
   
