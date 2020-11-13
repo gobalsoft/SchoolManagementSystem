@@ -13,13 +13,15 @@ import { SchoolClass } from 'src/app/student';
 export class ClassSubjectsComponent implements OnInit {
   ClassSubject:SchoolClass[]=[];
   ClassSubjects:SchoolClass[]=[];
+  selectSavearray:SchoolClass[]=[];
   ClsSubForm: FormGroup;
+  masterSelected:boolean=false;
   constructor( private formBuilder: FormBuilder,private router: Router,private schoolService:SchoolService ) {}
 
   ngOnInit(): void {
     
 this.schoolService.Getschoolcls().subscribe((data:SchoolClass[])=>{
-  this.ClassSubjects=data;
+   this.ClassSubjects=data;
   console.log(this.ClassSubject);
  });
 
@@ -36,4 +38,40 @@ this.schoolService.Getschoolcls().subscribe((data:SchoolClass[])=>{
     });
   }
   
+
+  checkUncheckAll(){
+
+    console.log(this.masterSelected);
+    console.log("checkUncheckAll");
+    //this.ClassSubject[0].IsSelected=false;
+    if(this.masterSelected){
+      debugger;
+     for(var i=0; i<this.ClassSubject.length;i++)
+     this.ClassSubject[i].IsSelected=true;
+    }else{
+      for(var i=0; i<this.ClassSubject.length;i++)
+      this.ClassSubject[i].IsSelected=false;
+    }
+  }
+  Selectvalue(){
+debugger;
+this.selectSavearray=[];
+    for(var i=0; i<this.ClassSubject.length;i++){
+    if(this.ClassSubject[i].IsSelected==true){
+      this.selectSavearray.push(this.ClassSubject[i]);
+     
+    }
+    
+  }
+  if(this.selectSavearray.length==0){
+    alert("any one select class name");
+  }else{
+    alert("hi");
+  }
+    console.log(this.selectSavearray);
+    //this.ClassSubject[i].IsSelected=true;
+    //this.selectSavearray.push(this.ClassSubject[i]);
+
+  }
+
 }

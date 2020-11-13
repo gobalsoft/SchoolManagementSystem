@@ -22,7 +22,7 @@
           <div class="col-sm-6 border">
             <div class="card-header row">
             <div class="col-sm-1">
-              <input type="checkbox">
+              <input type="checkbox" [(ngModel)]="masterSelected" (change)="checkUncheckAll()"/>{{masterSelected}}
             </div>
             <div class="col-sm-4">Subject Name</div>
             <div class="col-sm-2">Category</div>
@@ -35,24 +35,28 @@
                <div>
                 <input type="checkbox"  value="option" checked/> 
               </div>
-            
-          
+                      
              </div>
-             <div>
-              <ng-template #unchecked>
-                <input type="checkbox"  value="option" /> 
-              </ng-template>
-            </div>
+                        
            </div>
+           <div  class="col-sm-1">
+            <ng-template #unchecked>
+              <input type="checkbox"  value="option" /> 
+            </ng-template>
+           </div>
+          
            <div class="col-sm-4">{{ListclsSub.SubjectName}}</div>
            <div class="col-sm-2">{{ListclsSub.CategoryName}}</div>
          </div>
          </div>
-             
+         <div class="float-right">
+          <button (click)="Selectvalue()">Save</button>
+         </div>
+        
           </div>
                       
          
-            
+         
   
       </div>
 

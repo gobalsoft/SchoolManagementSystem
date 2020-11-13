@@ -10,6 +10,7 @@ export interface SchoolClass{
    // S.No:number;    
 ClassName:string;
 DisplayOrder:number;
+IsSelected:boolean;
 }
 export interface SchoolSubject{
     SubjectCode:string;
