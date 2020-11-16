@@ -6,6 +6,7 @@ import{AddSchoolAcademicYearComponent}from './Admin/add-school-academic-year/add
 import {SchoolClassesComponent}from './Admin/school-classes/school-classes.component';
 import {SchoolSubjectsComponent}from './Admin/school-subjects/school-subjects.component';
 import {ClassSubjectsComponent}from './Admin/class-subjects/class-subjects.component';
+import{AddstudentComponent}from './Admin/addstudent/addstudent.component';
 
 
   import { from } from 'rxjs';
@@ -35,6 +36,9 @@ const routes: Routes = [
 },
 {
   path:'ClassSubjects', component:ClassSubjectsComponent,
+},
+{
+path:'Add-Student', component:AddstudentComponent,
 },
  
 ];

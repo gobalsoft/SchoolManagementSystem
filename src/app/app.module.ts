@@ -12,6 +12,12 @@ import { AddSchoolAcademicYearComponent } from './Admin/add-school-academic-year
 import { SchoolClassesComponent } from './Admin/school-classes/school-classes.component';
 import { SchoolSubjectsComponent } from './Admin/school-subjects/school-subjects.component';
 import { ClassSubjectsComponent } from './Admin/class-subjects/class-subjects.component';
+import { AddstudentComponent } from './Admin/addstudent/addstudent.component';
+import { StudentPersonalDetailsComponent } from './Admin/Student/student-personal-details/student-personal-details.component';
+import { StudentClassDetailsComponent } from './Admin/Student/student-class-details/student-class-details.component';
+import { StudentParentDetailsComponent } from './Admin/Student/student-parent-details/student-parent-details.component';
+import { StudentCommunicationAddressComponent } from './Admin/Student/student-communication-address/student-communication-address.component';
+import { StudentDocumentComponent } from './Admin/Student/student-document/student-document.component';
 
 
 
@@ -24,6 +30,12 @@ import { ClassSubjectsComponent } from './Admin/class-subjects/class-subjects.co
     SchoolClassesComponent,
     SchoolSubjectsComponent,
     ClassSubjectsComponent,
+    AddstudentComponent,
+    StudentPersonalDetailsComponent,
+    StudentClassDetailsComponent,
+    StudentParentDetailsComponent,
+    StudentCommunicationAddressComponent,
+    StudentDocumentComponent,
 
   ],
   imports: [
