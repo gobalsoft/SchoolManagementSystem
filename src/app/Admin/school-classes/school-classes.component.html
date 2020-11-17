@@ -1,58 +1,67 @@
 <div class="border border border-primary h-100">
-    <div></div>
-    <div class="card-header border-primary">School Class</div>
-<div class="border">
+  <div></div>
+  <div class="card-header border-primary">School Class</div>
+  <div class="border">
     <div>
-        <form [formGroup]="SchoolClsForm"  (ngSubmit)="onSubmit()">
-    <div class="row mt-2">
-        
-        <div  class="col-sm-4 form-group">
+      <form [formGroup]="SchoolClsForm" (ngSubmit)="onSubmit()">
+        <div class="row mt-2">
+          <div class="col-sm-4 form-group">
             <label>Class Name</label>
-         <input type="text" formControlName="classname"  [ngClass]="{ 'is-invalid': submitted && fval.classname.errors}"/>
+            <input
+              type="text"
+              formControlName="classname"
+              [ngClass]="{ 'is-invalid': submitted && fval.classname.errors }"
+            />
 
-            <div *ngIf="submitted && fval.classname.errors" class="invalid-feedback">
-                <div *ngIf="fval.classname.errors.required">
-                    School Class Name Required
-                </div>
-                 
-                </div>
+            <div
+              *ngIf="submitted && fval.classname.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="fval.classname.errors.required">
+                School Class Name Required
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-4">
+            <label>Dispaly Order </label>
+            <input
+              type="text"
+              formControlName="Displayorder"
+              [ngClass]="{
+                'is-invalid': submitted && fval.Displayorder.errors
+              }"
+            />
+            <div
+              *ngIf="submitted && fval.Displayorder.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="fval.Displayorder.errors.required">
+                Display Order Required
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-2">
+            <input type="submit" value="ADD" class="btn btn-success" />
+          </div>
         </div>
-        
-                    <div  class="col-sm-4">
-            <label>Dispaly Order    </label>
-        <input type="text" formControlName="Displayorder"  [ngClass]="{ 'is-invalid': submitted && fval.Displayorder.errors}">
-            <div *ngIf="submitted && fval.Displayorder.errors" class="invalid-feedback">
-                <div *ngIf="fval.Displayorder.errors.required">
-                    Display Order Required
-                </div>
-                 
-                </div>
-        </div>
-        <div class="col-sm-2">
-   <input type="submit" value="ADD" class="btn btn-success"/>
-        </div>
-        
+      </form>
     </div>
-</form>
-</div>
-</div>
+  </div>
 
-    <div class="card-header">
-        <div class="row">
-            <div class="col-sm-4">S.No</div>
-        <div class="col-sm-4">School Class Name</div>
-        <div class="col-sm-4">Display Order</div>
+  <div class="card-header">
+    <div class="row">
+      <div class="col-sm-4">S.No</div>
+      <div class="col-sm-4">School Class Name</div>
+      <div class="col-sm-4">Display Order</div>
     </div>
-    
-        
-    </div>
-    <div class="row border-bottom " *ngFor="let listcls of Schoolcls ;let i = index">
-       
-        <div class="col-sm-4">{{i + 1}}</div>
-    <div class="col-sm-4">{{listcls.ClassName}}</div>
-    <div class="col-sm-4">{{listcls.Displayorder}}</div>
+  </div>
+  <div
+    class="row border-bottom"
+    *ngFor="let listcls of Schoolcls; let i = index"
+  >
+    <div class="col-sm-4">{{ i + 1 }}</div>
+    <div class="col-sm-4">{{ listcls.ClassName }}</div>
+    <div class="col-sm-4">{{ listcls.Displayorder }}</div>
+  </div>
 </div>
-
-
-</div>
-

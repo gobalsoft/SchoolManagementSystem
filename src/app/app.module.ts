@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import {ReactiveFormsModule} from "@angular/forms";
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SchoolAcademicYearComponent } from './Admin/school-academic-year/school-academic-year.component';
@@ -18,8 +18,6 @@ import { StudentClassDetailsComponent } from './Admin/Student/student-class-deta
 import { StudentParentDetailsComponent } from './Admin/Student/student-parent-details/student-parent-details.component';
 import { StudentCommunicationAddressComponent } from './Admin/Student/student-communication-address/student-communication-address.component';
 import { StudentDocumentComponent } from './Admin/Student/student-document/student-document.component';
-
-
 
 @NgModule({
   declarations: [
@@ -36,16 +34,15 @@ import { StudentDocumentComponent } from './Admin/Student/student-document/stude
     StudentParentDetailsComponent,
     StudentCommunicationAddressComponent,
     StudentDocumentComponent,
-
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

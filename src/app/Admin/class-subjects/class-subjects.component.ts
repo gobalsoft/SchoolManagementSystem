@@ -21,9 +21,7 @@ export class ClassSubjectsComponent implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router,
     private schoolService: SchoolService
-  ) {
-    
-  }
+  ) {}
 
   ngOnInit(): void {
     this.schoolService.Getschoolcls().subscribe((data: SchoolClass[]) => {
@@ -65,10 +63,10 @@ export class ClassSubjectsComponent implements OnInit {
         this.selectSavearray.push(this.ClassSubject[i]);
       }
     }
-    if(this.selectSavearray.length==0){
-     alert("any one select class name");
-    }else{
-    alert("select Item Sucess Fully");
+    if (this.selectSavearray.length == 0) {
+      alert('any one select class name');
+    } else {
+      alert('select Item Sucess Fully');
     }
     console.log(this.selectSavearray);
     //this.ClassSubject[i].IsSelected=true;
