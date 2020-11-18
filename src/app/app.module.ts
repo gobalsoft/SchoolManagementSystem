@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+import { StudentModule } from './Admin/Student/student/student.module';
 import { AppComponent } from './app.component';
 import { SchoolAcademicYearComponent } from './Admin/school-academic-year/school-academic-year.component';
 import { EditSchoolAcademicYearComponent } from './Admin/edit-school-academic-year/edit-school-academic-year.component';
@@ -38,6 +39,7 @@ import { StudentDocumentComponent } from './Admin/Student/student-document/stude
   imports: [
     BrowserModule,
     AppRoutingModule,
+    StudentModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
