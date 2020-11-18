@@ -7,6 +7,8 @@ import { SchoolClassesComponent } from './Admin/school-classes/school-classes.co
 import { SchoolSubjectsComponent } from './Admin/school-subjects/school-subjects.component';
 import { ClassSubjectsComponent } from './Admin/class-subjects/class-subjects.component';
 import { AddstudentComponent } from './Admin/addstudent/addstudent.component';
+import { StudentPersonalDetailsComponent } from './Admin/Student/student-personal-details/student-personal-details.component';
+import { StudentClassDetailsComponent } from './Admin/Student/student-class-details/student-class-details.component';
 
 import { from } from 'rxjs';
 
@@ -42,6 +44,21 @@ const routes: Routes = [
   {
     path: 'Add-Student',
     component: AddstudentComponent,
+  },
+  {
+    path: 'StudentPersonalDetails',
+    component: StudentPersonalDetailsComponent,
+
+    children: [
+     
+      {
+        path: 'StudentClass',
+        component: StudentClassDetailsComponent,
+      },
+    ],
+
+
+
   },
 ];
 
