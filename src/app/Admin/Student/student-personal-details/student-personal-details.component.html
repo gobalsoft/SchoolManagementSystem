@@ -2,39 +2,99 @@
   <div class="card-header border-primary font-italic font-weight-bold">
     Student Personal Details
   </div>
-
-  <div>
-    <div class="form-group row">
-      <label for="inputPassword" class="col-sm-2">Password</label>
-      <div class="col-sm-2 row">
-        <div>
-          <input
-            type="password"
-            class="form-control"
-            id="inputPassword"
-            placeholder="Password"
-          />
-        </div>
-        <div>
-          <input
-            type="password"
-            class="form-control"
-            id="inputPassword"
-            placeholder="Password"
-          />
-        </div>
-
-        <div>
-          <input
-            type="password"
-            class="form-control"
-            id="inputPassword"
-            placeholder="Password"
-          />
+  <div class="container">
+    <div>
+      <div class="row mt-2 form-group">
+        <label class="col-sm-2">Name FML</label>
+        <div class="col-sm-2"><input type="text" class="form-control" /></div>
+        <div class="col-sm-2"><input type="text" class="form-control" /></div>
+        <div class="col-sm-2"><input type="text" class="form-control" /></div>
+      </div>
+    </div>
+    <div class="row mt-2 form-group">
+      <label class="col-sm-2">Admissioin</label>
+      <div class="col-sm-2"><input type="text" class="form-control" /></div>
+    </div>
+    <div class="row mt-2 custom-control">
+      <label class="col-sm-2">Gender</label>
+      <div class="col-sm-1"><input type="radio" />Male</div>
+      <div class="col-sm-1"><input type="radio" />Female</div>
+    </div>
+    <div class="row mt-2 form-group">
+      <label class="col-sm-2">MotherToggue</label>
+      <div class="col-sm-2"><input type="text" class="form-control" /></div>
+    </div>
+    <div class="row mt-2 form-group">
+      <label class="col-sm-2">Email ID</label>
+      <div class="col-sm-2"><input type="text" class="form-control" /></div>
+    </div>
+    <div class="row mt-2 form-group">
+      <label class="col-sm-2">Date Of Joining</label>
+      <div class="col-sm-2"><input type="text" class="form-control" /></div>
+    </div>
+    <div class="row mt-2 form-group">
+      <label class="col-sm-2">Aadhar Card Number</label>
+      <div class="col-sm-2"><input type="text" class="form-control" /></div>
+    </div>
+    <div class="row mt-2 form-group">
+      <label class="col-sm-2">Date Of Birth</label>
+      <div class="col-sm-2"><input type="date" class="form-control" /></div>
+    </div>
+    <div class="row mt-2 form-group">
+      <label class="col-sm-2">Religion</label>
+      <div class="col-sm-4">
+        <select class="col-sm-6 form-control">
+          <option>select</option>
+        </select>
+      </div>
+    </div>
+    <div class="row mt-2 form-group">
+      <label class="col-sm-2">Nationality</label>
+      <div class="col-sm-4">
+        <select class="col-sm-6 form-control">
+          <option>select</option>
+        </select>
+      </div>
+    </div>
+    <div class="row mt-2 form-group">
+      <label class="col-sm-2">Disability</label>
+      <div class="col-sm-4">
+        <select class="col-sm-6 form-control">
+          <option>select</option>
+        </select>
+      </div>
+    </div>
+    <div class="row mt-2 form-group">
+      <label class="col-sm-2">Category</label>
+      <div class="col-sm-4">
+        <select class="col-sm-6 form-control">
+          <option>select</option>
+        </select>
+      </div>
+    </div>
+    <div class="row mt-2 form-group">
+      <label class="col-sm-2">Caste</label>
+      <div class="col-sm-4">
+        <select class="col-sm-6 form-control">
+          <option>select</option>
+        </select>
+      </div>
+    </div>
+    <div>
+      <div class="row">
+        <div class="">
+          <input type="checkbox" />
+          <p class="pr-1 float-left">Sent Login Information through mail</p>
         </div>
       </div>
     </div>
-
-    <router-outlet></router-outlet>
   </div>
+
+  <button class="btn btn-info float-right">
+    <a
+      routerLink="../AddStudentClass"
+      style="text-decoration: none; color: white"
+      >NEXT</a
+    >
+  </button>
 </div>

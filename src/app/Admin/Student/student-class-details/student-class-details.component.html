@@ -1,11 +1,36 @@
-
-
-
 <div class="border border border-primary h-100">
-    <div class="card-header border-primary font-italic font-weight-bold">
-      Student Class Details
-    </div>
-    <a routerLink="../AddDocument" routerLinkActive="active"
-    >AddDocument</a>
+  <div class="card-header border-primary font-italic font-weight-bold">
+    Student Class Details
   </div>
-  
+
+  <div class="container">
+    <div class="row mt-3">
+      <label class="col-sm-1">Class</label>
+      <div class="col-sm-2">
+        <select class="col-sm-7">
+          <option>select</option>
+        </select>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <label class="col-sm-1">Section</label>
+      <div class="col-sm-2">
+        <select class="col-sm-7">
+          <option>select</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <button class="btn btn-info">
+    <a routerLink="../AddStudentPersonal" style="text-decoration: none; color: white"
+      >Back</a
+    >
+  </button>
+  <button class="btn btn-info float-right">
+    <a
+      routerLink="../StudentParentDetails"
+      style="text-decoration: none; color: white"
+      >NEXT</a>
+    
+  </button>
+</div>
