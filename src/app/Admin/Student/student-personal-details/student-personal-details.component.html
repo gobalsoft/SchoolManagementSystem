@@ -12,7 +12,9 @@
               type="text"
               class="form-control"
               formControlName="FirstName"
-              [ngClass]="{ 'is-invalid': submitted && StudentControl.FirstName.errors }"
+              [ngClass]="{
+                'is-invalid': submitted && StudentControl.FirstName.errors
+              }"
             />
             <div
               *ngIf="submitted && StudentControl.FirstName.errors"
@@ -33,7 +35,9 @@
               type="text"
               class="form-control"
               formControlName="LastName"
-              [ngClass]="{ 'is-invalid': submitted && StudentControl.LastName.errors }"
+              [ngClass]="{
+                'is-invalid': submitted && StudentControl.LastName.errors
+              }"
             />
             <div
               *ngIf="submitted && StudentControl.LastName.errors"
@@ -45,8 +49,25 @@
         </div>
       </div>
       <div class="row mt-2 form-group">
-        <label class="col-sm-2">Admissioin</label>
-        <div class="col-sm-2"><input type="text" class="form-control" /></div>
+        <label class="col-sm-2">Admissioin No</label>
+        <div class="col-sm-2">
+          <input
+            type="text"
+            class="form-control"
+            formControlName="Admission"
+            [ngClass]="{
+              'is-invalid': submitted && StudentControl.Admission.errors
+            }"
+          />
+          <div
+            *ngIf="submitted && StudentControl.Admission.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="StudentControl.Admission.errors.required">
+              <div>Minlength1 and Maxlength 4</div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="row mt-2 custom-control">
         <label class="col-sm-2">Gender</label>
@@ -73,40 +94,73 @@
       </div>
       <div class="row mt-2 form-group">
         <label class="col-sm-2">Email ID</label>
-        <div class="col-sm-2"><input type="text" class="form-control" /></div>
+        <div class="col-sm-2">
+          <input
+            type="text"
+            class="form-control"
+            formControlName="EmailID"
+            [ngClass]="{
+              'is-invalid': submitted && StudentControl.EmailID.errors
+            }"
+          />
+          <div
+            *ngIf="submitted && StudentControl.EmailID.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="StudentControl.EmailID.errors.required"></div>
+          </div>
+        </div>
       </div>
       <div class="row mt-2 form-group">
         <label class="col-sm-2">Date Of Joining</label>
-        <div class="col-sm-2"><input type="text" class="form-control" /></div>
+        <div class="col-sm-2">
+          <input
+            type="date"
+            class="form-control"
+            formControlName="DateOfJoining"
+          />
+        </div>
       </div>
       <div class="row mt-2 form-group">
         <label class="col-sm-2">Aadhar Card Number</label>
-        <div class="col-sm-2"><input type="text" class="form-control" /></div>
+        <div class="col-sm-2">
+          <input
+            type="text"
+            class="form-control"
+            formControlName="AadharCardNumber"
+          />
+        </div>
       </div>
       <div class="row mt-2 form-group">
         <label class="col-sm-2">Date Of Birth</label>
-        <div class="col-sm-2"><input type="date" class="form-control" /></div>
+        <div class="col-sm-2">
+          <input
+            type="date"
+            class="form-control"
+            formControlName="DateOfBirth"
+          />
+        </div>
       </div>
       <div class="row mt-2 form-group">
         <label class="col-sm-2">Religion</label>
         <div class="col-sm-4">
-          <select class="col-sm-6 form-control">
-            <option>select</option>
+          <select class="col-sm-6 form-control" formControlName="Religion">
+            <option *ngFor="let ReligionList of StudentReligion">{{ReligionList.ReligionName}}</option>
           </select>
         </div>
       </div>
       <div class="row mt-2 form-group">
         <label class="col-sm-2">Nationality</label>
         <div class="col-sm-4">
-          <select class="col-sm-6 form-control">
-            <option>select</option>
+          <select class="col-sm-6 form-control" formControlName="Nationality">
+            <option *ngFor="let NationalityList of StudentNationality">{{NationalityList.Nationality1}} </option>
           </select>
         </div>
       </div>
       <div class="row mt-2 form-group">
         <label class="col-sm-2">Disability</label>
         <div class="col-sm-4">
-          <select class="col-sm-6 form-control">
+          <select class="col-sm-6 form-control" formControlName="Disability">
             <option>select</option>
           </select>
         </div>
@@ -114,15 +168,15 @@
       <div class="row mt-2 form-group">
         <label class="col-sm-2">Category</label>
         <div class="col-sm-4">
-          <select class="col-sm-6 form-control">
-            <option>select</option>
+          <select class="col-sm-6 form-control" formControlName="Category">
+            <option  *ngFor="let CategoryList of StudentCategory">{{CategoryList.Category1}}</option>
           </select>
         </div>
       </div>
       <div class="row mt-2 form-group">
         <label class="col-sm-2">Caste</label>
         <div class="col-sm-4">
-          <select class="col-sm-6 form-control">
+          <select class="col-sm-6 form-control" formControlName="Caste">
             <option>select</option>
           </select>
         </div>
@@ -130,7 +184,7 @@
       <div>
         <div class="row">
           <div class="">
-            <input type="checkbox" />
+            <input type="checkbox" formControlName="SentLogin" />
             <p class="pr-1 float-left">Sent Login Information through mail</p>
           </div>
         </div>

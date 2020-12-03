@@ -19,7 +19,10 @@ import { from } from 'rxjs';
 })
 export class StudentPersonalDetailsComponent implements OnInit {
   StudentPersonalForm: FormGroup;
- StudentList :StudentPersonalDetailsComponent[] = [];
+  StudentList: StudentPersonalDetailsComponent[] = [];
+  StudentReligion: Religion[] = [];
+  StudentNationality: Nationality[] = [];
+  StudentCategory:Category[]=[];
   submitted = false;
   constructor(
     private formBuilder: FormBuilder,
@@ -30,9 +33,44 @@ export class StudentPersonalDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.StudentPersonalForm = this.formBuilder.group({
       FirstName: ['', Validators.required],
-      MiddleName:[],
+      MiddleName: [],
       LastName: ['', Validators.required],
+      Admission: [
+        '',
+        Validators.required,
+        Validators.maxLength[4],
+        Validators.minLength[1],
+      ],
+      EmailID: ['', [Validators.required, Validators.email]],
+      DateOfJoining: ['', Validators.required],
+      AadharCardNumber: ['', Validators.required],
+      DateOfBirth: ['', Validators.required],
+
+      Religion: ['', Validators.required],
+      Nationality: ['', Validators.required],
+      Disability: ['', ''],
+      Category: ['', Validators.required],
+      Caste: ['', ''],
+      SentLogin: ['', ''],
     });
+    this.schoolService
+      .GetStudentReligion()
+      .subscribe((data: Religion[]) => {
+        this.StudentReligion = data;
+        console.log("StudentReligion"+this.StudentReligion);
+      });
+      this.schoolService
+      .GetStudentNationality()
+      .subscribe((data: Nationality[]) => {
+        this.StudentNationality = data;
+        console.log("StudentReligion"+this.StudentNationality);
+      });
+      this.schoolService
+      .GetStudentCategory()
+      .subscribe((data: Category[]) => {
+        this.StudentCategory = data;
+        console.log("StudentReligion"+this.StudentCategory);
+      });
   }
   get StudentControl() {
     console.log(this.StudentPersonalForm.controls);
@@ -40,11 +78,11 @@ export class StudentPersonalDetailsComponent implements OnInit {
   }
   onSubmit() {
     debugger;
-    console.log("submit");
+    console.log(this.StudentPersonalForm.controls);
+    console.log('submit');
     this.submitted = true;
     if (!this.StudentPersonalForm.invalid) {
-      console.log("ackabc");
+      console.log('ackabc');
     }
-
   }
 }

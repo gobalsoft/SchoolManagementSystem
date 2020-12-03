@@ -1,6 +1,6 @@
 export interface Religion {
   ReligionID: number;
-  Religion: string;
+  ReligionName: string;
   Status: boolean;
 }
 export interface Nationality {

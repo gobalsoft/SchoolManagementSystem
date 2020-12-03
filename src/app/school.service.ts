@@ -5,9 +5,10 @@ import {
   HttpHeaders,
 } from '@angular/common/http';
 
-import { throwError, Observable } from 'rxjs';
+import { throwError, Observable, from } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { SchoolAcademic, SchoolClass, SchoolSubject } from './student';
+import { Religion, Nationality, Category } from './master';
 @Injectable({
   providedIn: 'root',
 })
@@ -15,6 +16,11 @@ export class SchoolService {
   uri: string = 'https://localhost:5000/SchoolMS/';
   student: Array<SchoolAcademic> = [];
   SchoolClaees: Array<SchoolClass> = [];
+
+  StudentReligion: Array<Religion> = [];
+  StudentNationality: Array<Nationality> = [];
+  StudentCategory: Array<Category> = [];
+
   schoolId = 1;
   constructor(private httpClient: HttpClient) {}
   httpOptions = {
@@ -117,6 +123,36 @@ export class SchoolService {
           '/' +
           classId +
           '',
+        this.httpOptions
+      )
+      .pipe(catchError(this.errorHandler));
+  }
+  GetStudentReligion(): Observable<Religion[]> {
+    debugger;
+    // console.log('get' + this.SchoolClaees);
+    return this.httpClient
+      .get<Religion[]>(
+        'https://localhost:5000/SchoolMS/api/GetReligion/1',
+        this.httpOptions
+      )
+      .pipe(catchError(this.errorHandler));
+  }
+  GetStudentNationality(): Observable<Nationality[]> {
+    debugger;
+    // console.log('get' + this.SchoolClaees);
+    return this.httpClient
+      .get<Nationality[]>(
+        'https://localhost:5000/SchoolMS/api/GetNationality/1',
+        this.httpOptions
+      )
+      .pipe(catchError(this.errorHandler));
+  }
+  GetStudentCategory(): Observable<Category[]> {
+    debugger;
+    // console.log('get' + this.SchoolClaees);
+    return this.httpClient
+      .get<Category[]>(
+        'https://localhost:5000/SchoolMS/api/GetCategory/1',
         this.httpOptions
       )
       .pipe(catchError(this.errorHandler));
