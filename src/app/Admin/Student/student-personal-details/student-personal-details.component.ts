@@ -22,8 +22,9 @@ export class StudentPersonalDetailsComponent implements OnInit {
   StudentList: StudentPersonalDetailsComponent[] = [];
   StudentReligion: Religion[] = [];
   StudentNationality: Nationality[] = [];
-  StudentCategory:Category[]=[];
+  StudentCategory: Category[] = [];
   submitted = false;
+  
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
@@ -33,7 +34,7 @@ export class StudentPersonalDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.StudentPersonalForm = this.formBuilder.group({
       FirstName: ['', Validators.required],
-      MiddleName: [],
+      MiddleName: ['', ''],
       LastName: ['', Validators.required],
       Admission: [
         '',
@@ -42,9 +43,9 @@ export class StudentPersonalDetailsComponent implements OnInit {
         Validators.minLength[1],
       ],
       EmailID: ['', [Validators.required, Validators.email]],
-      DateOfJoining: ['', Validators.required],
-      AadharCardNumber: ['', Validators.required],
-      DateOfBirth: ['', Validators.required],
+      DateOfJoining: ['', ''],
+      AadharCardNumber: ['', ''],
+      DateOfBirth: ['', ''],
 
       Religion: ['', Validators.required],
       Nationality: ['', Validators.required],
@@ -53,24 +54,20 @@ export class StudentPersonalDetailsComponent implements OnInit {
       Caste: ['', ''],
       SentLogin: ['', ''],
     });
+    this.schoolService.GetStudentReligion().subscribe((data: Religion[]) => {
+      this.StudentReligion = data;
+      console.log('StudentReligion' + this.StudentReligion);
+    });
     this.schoolService
-      .GetStudentReligion()
-      .subscribe((data: Religion[]) => {
-        this.StudentReligion = data;
-        console.log("StudentReligion"+this.StudentReligion);
-      });
-      this.schoolService
       .GetStudentNationality()
       .subscribe((data: Nationality[]) => {
         this.StudentNationality = data;
-        console.log("StudentReligion"+this.StudentNationality);
+        console.log('StudentReligion' + this.StudentNationality);
       });
-      this.schoolService
-      .GetStudentCategory()
-      .subscribe((data: Category[]) => {
-        this.StudentCategory = data;
-        console.log("StudentReligion"+this.StudentCategory);
-      });
+    this.schoolService.GetStudentCategory().subscribe((data: Category[]) => {
+      this.StudentCategory = data;
+      console.log('StudentReligion' + this.StudentCategory);
+    });
   }
   get StudentControl() {
     console.log(this.StudentPersonalForm.controls);
@@ -82,7 +79,7 @@ export class StudentPersonalDetailsComponent implements OnInit {
     console.log('submit');
     this.submitted = true;
     if (!this.StudentPersonalForm.invalid) {
-      console.log('ackabc');
+      this.router.navigate(['/Student/AddStudentClass']);
     }
   }
 }

@@ -13,7 +13,7 @@ import { Religion, Nationality, Category } from './master';
   providedIn: 'root',
 })
 export class SchoolService {
-  uri: string = 'https://localhost:5000/SchoolMS/';
+  url: string = 'https://localhost:5000/SchoolMS/';
   student: Array<SchoolAcademic> = [];
   SchoolClaees: Array<SchoolClass> = [];
 
@@ -44,7 +44,7 @@ export class SchoolService {
   editAcademic(id): Observable<SchoolAcademic[]> {
     debugger;
     return this.httpClient
-      .get<SchoolAcademic[]>(`${this.uri}/api/Academic/${id}`)
+      .get<SchoolAcademic[]>(`${this.url}/api/Academic/${id}`)
       .pipe(catchError(this.errorHandler));
   }
 
