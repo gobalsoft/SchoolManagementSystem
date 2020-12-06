@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { SchoolService } from 'src/app/school.service';
 import { Student_Personal_Details } from 'src/app/student';
 import {
@@ -24,7 +24,7 @@ export class StudentPersonalDetailsComponent implements OnInit {
   StudentNationality: Nationality[] = [];
   StudentCategory: Category[] = [];
   submitted = false;
-  
+
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
