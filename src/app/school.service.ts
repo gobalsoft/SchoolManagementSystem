@@ -53,7 +53,7 @@ export class SchoolService {
 
     return this.httpClient
       .post<SchoolAcademic[]>(
-        'https://localhost:5000/SchoolMS/api/Academic',
+        `${this.url}/api/Academic`,
         body,
         this.httpOptions
       )
@@ -65,7 +65,8 @@ export class SchoolService {
     console.log('get' + this.SchoolClaees);
     return this.httpClient
       .get<SchoolClass[]>(
-        'https://localhost:5000/SchoolMS/api/GetAllClass/1',
+        `${this.url}/api/GetAllClass/1`,
+
         this.httpOptions
       )
       .pipe(catchError(this.errorHandler));
@@ -76,10 +77,11 @@ export class SchoolService {
 
     return this.httpClient
       .post<SchoolClass[]>(
-        'https://localhost:5000/SchoolMS/api/SaveSchoolClass',
+        `${this.url}/api/SaveSchoolClass`,
         body,
         this.httpOptions
       )
+
       .pipe(catchError(this.errorHandler));
   }
 
@@ -87,10 +89,11 @@ export class SchoolService {
     const body = JSON.stringify(DataSub);
     return this.httpClient
       .post<SchoolSubject[]>(
-        'https://localhost:5000/SchoolMS/api/SaveSchoolSubject',
+        `${this.url}/api/SaveSchoolSubject`,
         body,
         this.httpOptions
       )
+
       .pipe(catchError(this.errorHandler));
   }
 
@@ -99,9 +102,11 @@ export class SchoolService {
     console.log('get' + this.SchoolClaees);
     return this.httpClient
       .get<SchoolSubject[]>(
-        'https://localhost:5000/SchoolMS/api/GetAllSubject/1',
+        `${this.url}/api/GetAllSubject/1`,
+
         this.httpOptions
       )
+
       .pipe(catchError(this.errorHandler));
   }
 
@@ -110,7 +115,8 @@ export class SchoolService {
 
     return this.httpClient
       .get<SchoolSubject[]>(
-        'https://localhost:5000/SchoolMS/api/GetSubjectCategory/1',
+        `${this.url}/api/GetSubjectCategory/1`,
+
         this.httpOptions
       )
       .pipe(catchError(this.errorHandler));

@@ -1,12 +1,14 @@
 <div class="border border border-primary h-100">
   <div class="card-header border-primary font-italic font-weight-bold">
-    Student Personal Details
+    Student Personal Details{{a}}
+   
   </div>
   <div class="container">
     <form [formGroup]="StudentPersonalForm" (ngSubmit)="onSubmit()">
       <div>
         <div class="row mt-2 form-group">
           <label class="col-sm-2">Name FML</label>
+         
           <div class="col-sm-2">
             <input
               type="text"
@@ -115,10 +117,12 @@
         <label class="col-sm-2">Date Of Joining</label>
         <div class="col-sm-2">
           <input
-            type="date"
+            type="date"         
             class="form-control"
             formControlName="DateOfJoining"
+ 
           />
+
         </div>
       </div>
       <div class="row mt-2 form-group">

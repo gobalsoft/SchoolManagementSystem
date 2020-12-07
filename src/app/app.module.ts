@@ -19,6 +19,7 @@ import { StudentClassDetailsComponent } from './Admin/Student/student-class-deta
 import { StudentParentDetailsComponent } from './Admin/Student/student-parent-details/student-parent-details.component';
 import { StudentCommunicationAddressComponent } from './Admin/Student/student-communication-address/student-communication-address.component';
 import { StudentDocumentComponent } from './Admin/Student/student-document/student-document.component';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,7 @@ import { StudentDocumentComponent } from './Admin/Student/student-document/stude
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

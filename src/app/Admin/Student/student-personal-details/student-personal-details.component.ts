@@ -11,6 +11,7 @@ import {
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { from } from 'rxjs';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-student-personal-details',
@@ -24,12 +25,16 @@ export class StudentPersonalDetailsComponent implements OnInit {
   StudentNationality: Nationality[] = [];
   StudentCategory: Category[] = [];
   submitted = false;
+  myDate = new Date();
+  a:string;
 
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private schoolService: SchoolService
-  ) {}
+    private schoolService: SchoolService,
+    private datePipe: DatePipe
+  ) {
+    this.a = this.datePipe.transform(this.myDate, 'yyyy-MM-dd');}
 
   ngOnInit(): void {
     this.StudentPersonalForm = this.formBuilder.group({
@@ -53,6 +58,7 @@ export class StudentPersonalDetailsComponent implements OnInit {
       Category: ['', Validators.required],
       Caste: ['', ''],
       SentLogin: ['', ''],
+      SchoolID: ['1'],
     });
     this.schoolService.GetStudentReligion().subscribe((data: Religion[]) => {
       this.StudentReligion = data;

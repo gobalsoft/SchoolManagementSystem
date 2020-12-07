@@ -1,3 +1,4 @@
+import { Input } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./student-class-details.component.css']
 })
 export class StudentClassDetailsComponent implements OnInit {
-
+  @Input() data: string;
   constructor() { }
 
   ngOnInit(): void {
