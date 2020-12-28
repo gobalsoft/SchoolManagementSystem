@@ -7,7 +7,12 @@ import {
 
 import { throwError, Observable, from } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { SchoolAcademic, SchoolClass, SchoolSubject } from './student';
+import {
+  SchoolAcademic,
+  SchoolClass,
+  SchoolSubject,
+  Student_Personal_Details,
+} from './student';
 import { Religion, Nationality, Category } from './master';
 @Injectable({
   providedIn: 'root',
@@ -15,6 +20,7 @@ import { Religion, Nationality, Category } from './master';
 export class SchoolService {
   url: string = 'https://localhost:5000/SchoolMS/';
   student: Array<SchoolAcademic> = [];
+  StudentPersonal: Array<Student_Personal_Details> = [];
   SchoolClaees: Array<SchoolClass> = [];
 
   StudentReligion: Array<Religion> = [];
@@ -159,6 +165,18 @@ export class SchoolService {
     return this.httpClient
       .get<Category[]>(
         'https://localhost:5000/SchoolMS/api/GetCategory/1',
+        this.httpOptions
+      )
+      .pipe(catchError(this.errorHandler));
+  }
+
+  SaveStudentPersonal(data: any): Observable<Student_Personal_Details[]> {
+    const body = JSON.stringify(data);
+
+    return this.httpClient
+      .post<Student_Personal_Details[]>(
+        `${this.url}/api/StudentPersonalDetails`,
+        body,
         this.httpOptions
       )
       .pipe(catchError(this.errorHandler));

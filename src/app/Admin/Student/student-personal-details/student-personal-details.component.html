@@ -1,14 +1,13 @@
 <div class="border border border-primary h-100">
   <div class="card-header border-primary font-italic font-weight-bold">
-    Student Personal Details{{a}}
-   
+    Student Personal Details{{ a }}
   </div>
   <div class="container">
     <form [formGroup]="StudentPersonalForm" (ngSubmit)="onSubmit()">
       <div>
         <div class="row mt-2 form-group">
           <label class="col-sm-2">Name FML</label>
-         
+
           <div class="col-sm-2">
             <input
               type="text"
@@ -117,12 +116,10 @@
         <label class="col-sm-2">Date Of Joining</label>
         <div class="col-sm-2">
           <input
-            type="date"         
+            type="date"
             class="form-control"
-            formControlName="DateOfJoining"
- 
+                   formControlName="DateOfJoining"
           />
-
         </div>
       </div>
       <div class="row mt-2 form-group">
@@ -162,7 +159,7 @@
           <select class="col-sm-6 form-control" formControlName="Nationality">
             <option value="0">Select</option>
             <option *ngFor="let NationalityList of StudentNationality">
-              {{ NationalityList.Nationality1 }}
+              {{ NationalityList.NationalityName }}
             </option>
           </select>
         </div>

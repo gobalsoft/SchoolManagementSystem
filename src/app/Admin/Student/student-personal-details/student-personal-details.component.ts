@@ -20,13 +20,13 @@ import { DatePipe } from '@angular/common';
 })
 export class StudentPersonalDetailsComponent implements OnInit {
   StudentPersonalForm: FormGroup;
-  StudentList: StudentPersonalDetailsComponent[] = [];
+  StudentList: Student_Personal_Details[] = [];
   StudentReligion: Religion[] = [];
   StudentNationality: Nationality[] = [];
   StudentCategory: Category[] = [];
   submitted = false;
   myDate = new Date();
-  a:string;
+  a: string;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -34,7 +34,8 @@ export class StudentPersonalDetailsComponent implements OnInit {
     private schoolService: SchoolService,
     private datePipe: DatePipe
   ) {
-    this.a = this.datePipe.transform(this.myDate, 'yyyy-MM-dd');}
+    this.a = this.datePipe.transform(this.myDate, 'yyyy-MM-dd');
+  }
 
   ngOnInit(): void {
     this.StudentPersonalForm = this.formBuilder.group({
@@ -52,10 +53,10 @@ export class StudentPersonalDetailsComponent implements OnInit {
       AadharCardNumber: ['', ''],
       DateOfBirth: ['', ''],
 
-      Religion: ['', Validators.required],
-      Nationality: ['', Validators.required],
+      Religion: ['', ''],
+      Nationality: ['', ''],
       Disability: ['', ''],
-      Category: ['', Validators.required],
+      Category: ['', ''],
       Caste: ['', ''],
       SentLogin: ['', ''],
       SchoolID: ['1'],
@@ -84,8 +85,25 @@ export class StudentPersonalDetailsComponent implements OnInit {
     console.log(this.StudentPersonalForm.controls);
     console.log('submit');
     this.submitted = true;
-    if (!this.StudentPersonalForm.invalid) {
-      this.router.navigate(['/Student/AddStudentClass']);
-    }
+    // if (!this.StudentPersonalForm.invalid) {
+    var array = {
+      First_Name: this.StudentPersonalForm.controls.FirstName.value,
+      Middle_Name: this.StudentPersonalForm.controls.LastName.value,
+      Email_ID: this.StudentPersonalForm.controls.EmailID.value,
+      Mother_Tongue: 'Test',
+      Last_Name: 'Last_Name',
+      Date_Of_Join: new Date(),
+      Date_Of_Birth: new Date(),
+      Aadhar_Number: 'Aadhar_Number',
+      Gender: 'Gender',
+      Is_Login_Details_Sent: 'Is_Login_Details_Sent',
+    };
+    this.schoolService
+      .SaveStudentPersonal(array)
+      .subscribe((data: Student_Personal_Details[]) => {
+        console.log('cls' + data);
+      });
+    this.router.navigate(['/Student/AddStudentClass']);
+    //  }
   }
 }
